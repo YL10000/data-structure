@@ -14,6 +14,8 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
+import com.alibaba.fastjson.JSON;
+
 /**
  * @Title: SortTest
  * @Description: 简单排序测试类
@@ -69,5 +71,45 @@ public class SortTest {
 		Arrays.stream(array).forEach((t)->{
 			System.out.print(t+",");
 		});
+	}
+	
+	@Test
+	public void quickSortTest() {
+		array= new int[]{6,1,11,2,5,9,3,5,7,4,10,8,9,15,12,6,11};
+		System.out.println("------排序前：--------");
+		Arrays.stream(array).forEach((t)->{
+			System.out.print(t+",");
+		});
+		System.out.println();
+		array=new Sort().quickSort(array);
+		System.out.println("------排序后：--------");
+		Arrays.stream(array).forEach((t)->{
+			System.out.print(t+",");
+		});
+	}
+	
+	@Test
+	public void mergeSortTest() {
+		array= new int[]{6,1,11,2,5,9,3,5,7,4,10,8,9,15,12,6,11};
+		System.out.println("------排序前：--------");
+		Arrays.stream(array).forEach((t)->{
+			System.out.print(t+",");
+		});
+		System.out.println();
+		array=new Sort().mergeSort(array);
+		System.out.println("------排序后：--------");
+		Arrays.stream(array).forEach((t)->{
+			System.out.print(t+",");
+		});
+	}
+	
+	@Test
+	public void bucketSortTest() {
+		array= new int[]{6,23,783,45,234,12,2};
+		System.out.println("------排序前：--------");
+		System.out.println(JSON.toJSONString(array));
+		new Sort().bucketSort(array);
+		System.out.println("------排序后：--------");
+		System.out.println(JSON.toJSONString(array));
 	}
 }

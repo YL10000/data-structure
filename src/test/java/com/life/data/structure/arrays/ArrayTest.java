@@ -12,6 +12,12 @@ package com.life.data.structure.arrays;
 
 import org.junit.Test;
 
+import com.life.data.structure.queue.ArrayQueue;
+import com.life.data.structure.queue.LoopQueue;
+import com.life.data.structure.queue.Queue;
+import com.life.data.structure.stack.ArrayStack;
+import com.life.data.structure.stack.Stack;
+
 /**
  * @Title: ArrayTest
  * @Description: 数组测试类
@@ -22,7 +28,62 @@ import org.junit.Test;
  */
 public class ArrayTest {
 	
+	@Test
+	public void arrayTest() {
+		Array<Integer> array=new Array<>();
+		for(int i=0;i<10;i++)
+			array.addFirst(i).display();
 	
+		array.display().add(88, 5).remove(3);
+		array.removeFirst();
+		array.removeLast();
+		array.display();
+		
+		array.removeFirst();
+		array.removeLast();
+		array.remove(4);
+		array.display();
+	}
+	
+	@Test
+	public void arrayStackTest() {
+		Stack<Integer> stack=new ArrayStack<>();
+		for(int i=0;i<10;i++) {
+			stack.push(i);
+		}
+		
+		stack.display().pop();
+		
+		Integer top=stack.display().peek();
+		System.out.println(top);
+		
+		stack.display().pop();
+		stack.display();
+	}
+	
+	@Test
+	public void arrayQueueTest() {
+		Queue<Integer> queue=new ArrayQueue<>();
+		for(int i=0;i<10;i++) {
+			queue.enQueue(i);
+		}
+		queue.display().deQueue();
+		Integer front=queue.display().getFront();
+		System.out.println(front);
+		queue.enQueue(88).display();
+	}
+	
+	@Test
+	public void loopQueueTest() {
+		Queue<Integer> queue=new LoopQueue<>();
+		for(int i=0;i<10;i++) {
+			queue.enQueue(i);
+		}
+		queue.display().deQueue();
+		Integer front=queue.display().getFront();
+		System.out.println(front);
+		queue.enQueue(88).display();
+	}
 
 	@Test
 	public void operateWithIndex() {
@@ -39,7 +100,6 @@ public class ArrayTest {
 		
 		System.out.println(array.get(2));
 	}
-	
 	
 	@Test
 	public void operateNoIndex() {
@@ -75,4 +135,5 @@ public class ArrayTest {
 		
 		System.out.println(array.get(4));
 	}
+	
 }
