@@ -32,6 +32,13 @@ public class Array<E> {
 		datas=(E[]) new Object[capacity];
 		this.size=0;
 	}
+	
+	public Array(E[] nums) {
+		this(nums.length);
+		for(int i=0;i<nums.length;i++) {
+			this.add(nums[i], i);
+		}
+	}
 
 	public Array() {
 		this(10);
@@ -84,8 +91,8 @@ public class Array<E> {
 	
 	//获取指定索引位置的元素
 	public E find(int index) {
-		if (index>=size||index<0) {
-			throw new IllegalArgumentException("find failer.require index >=0 and index < "+size);
+		if (index>=getSize()||index<0) {
+			throw new IllegalArgumentException("find failer.index is "+index+", but require index >=0 and index < "+getSize());
 		}
 		return datas[index];
 	}
@@ -144,6 +151,13 @@ public class Array<E> {
 	
 	public E removeLast(){
 		return remove(size-1);
+	}
+	
+	//交互两个坐标下的数据
+	public void swap(int index1,int index2) {
+		E temp = find(index1);
+		datas[index1]=datas[index2];
+		datas[index2]=temp;
 	}
 	
 	//将数组进行扩容或者缩容

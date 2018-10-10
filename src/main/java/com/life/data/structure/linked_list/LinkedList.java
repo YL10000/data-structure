@@ -10,6 +10,7 @@
  */
 package com.life.data.structure.linked_list;
 
+
 /**
  * @Title: LinkedList
  * @Description: 自定义链表

@@ -8,10 +8,12 @@
  * @Version V1.0
  * @Copyright: 2018 All Rights Reserved.北京西天取经科技有限公司
  */
-package com.life.data.structure.linked_list;
+package com.life.data.structure;
 
 import org.junit.Test;
 
+import com.life.data.structure.linked_list.DummyHeadLinkedList;
+import com.life.data.structure.linked_list.LinkedList;
 import com.life.data.structure.queue.LinkListQueue;
 import com.life.data.structure.stack.LinkedListStack;
 
@@ -55,7 +57,7 @@ public class LinkedListTest {
 		linkedList.display();
 		System.out.println(linkedList.removeFirst());
 		System.out.println(linkedList.removeLast());
-		linkedList.display();
+		linkedList.display().removeElement(666).display();
 	}
 	
 	@Test
