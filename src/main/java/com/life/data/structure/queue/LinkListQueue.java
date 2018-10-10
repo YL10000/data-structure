@@ -48,7 +48,7 @@ public class LinkListQueue<E> implements Queue<E> {
 
 	@Override
 	public Queue<E> enQueue(E e) {
-		if (tail==null) {
+		if (isEmpty()) {
 			tail=new Node<E>(e, tail);
 			head=tail;
 		}else {

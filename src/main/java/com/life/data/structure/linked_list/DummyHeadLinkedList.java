@@ -128,6 +128,25 @@ public class DummyHeadLinkedList<E> {
 		return this.remove(size-1);
 	}
 	
+	//删除指定的节点
+	public DummyHeadLinkedList<E> removeElement(E e){
+		dummyHead=removeElement(e, dummyHead);
+		return this;
+	}
+	
+	//删除以node为根节点的链表的e
+	private Node removeElement(E e,Node node){
+		if (node==null) {
+			return node;
+		}
+		if (e.equals(node.e)) {
+			size--;
+			return node.next;
+		}
+		node.next=removeElement(e, node.next);
+		return node;
+	}
+	
 	@Override
 	public String toString() {
 		StringBuffer buffer=new StringBuffer();
